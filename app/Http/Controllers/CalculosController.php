@@ -16,6 +16,13 @@ class CalculosController extends Controller
         return 'Multiplicação: '.$x*$y;
     }
     function divi($x, $y){
-        return 'Divisão: '.$x/$y;
+        if($y != 0){
+            return 'Divisão: '.$x/$y;
+        }else{
+            return 'Sem divisão por 0 >:(';
+        }
+    }
+    function square($x){
+        return 'Quadrado: '.$x**2;
     }
 }
