@@ -28,4 +28,7 @@ Route::get('calc/quad/{x}', [CalculosController::class, 'square']);
 Route::prefix('/keep')->group(function(){
     Route::get('/', [KeepController::class, 'index'])->name('keep');
     Route::post('/gravar', [KeepController::class,'gravar'])->name('keep.gravar');
+    Route::put('/editar', [KeepController::class,'editar'])->name('keep.editarGravar');
+    Route::get('/editar/{nota}', [KeepController::class,'editar'])->name('keep.editar');
+    Route::delete('/apagar/{nota}', [KeepController::class,'apagar'])->name('keep.apagar');
 });
