@@ -13,8 +13,8 @@
 <form method="post" action = "{{ route('keep.editarGravar') }}">
     @method('PUT')
     @csrf
-    <input type="text" placeholder="titulo" name = "titulo" value = "{{ $nota->titulo }}">
-    <textarea name="texto" placeholder="Nota" cols="30" rows="10" >{{ $nota->texto }}</textarea>
+    <input type="text" placeholder="titulo" name = "titulo" value = "{{ old('titulo', $nota->titulo) }}">
+    <textarea name="texto" placeholder="Nota" cols="30" rows="10" >{{ old('texto', $nota->texto) }}</textarea>
     <input type="hidden" name = "id" value = "{{ $nota->id }}">
     <input type="submit" value="AAAAAAAAA">
 </form>
