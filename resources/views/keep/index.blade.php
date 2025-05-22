@@ -10,6 +10,7 @@
         @endforeach
     </ul>
 @endif
+<a href="{{ route('keep.lixeira') }}">Lixeira</a>
 <hr>
     <form action="{{ route('keep.gravar') }}" method = "post">
         @csrf

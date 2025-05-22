@@ -35,4 +35,14 @@ class KeepController extends Controller
         return redirect()->route('keep');
     }
     
+    public function lixeira(){
+        $notas = Nota::onlyTrashed()->get();
+        return view('keep.lixeira',["notas"=> $notas]);
+    }
+
+    public function restaurar($nota){
+        $nota = Nota::withTrashed()->find($nota);
+        $nota->restore();
+        return redirect()->route('keep.lixeira')->with('sucesso','nota restaurada com sucesso');
+    }
 }
