@@ -1,5 +1,13 @@
 <h1>Usuários</h1>
 <hr>
+@if (Auth::user())
+    Olá {{ Auth::user()->name }}.
+    <a href="{{ route('autentica.logout') }}">Sair</a>
+@else
+    Você não está autenticado.
+    <a href="{{ route('autentica.login') }}">Entrar</a>
+@endif
+
 @if ($errors->any())
     <div style="color:red">
         <h3>Erro :3</h3>
@@ -18,3 +26,9 @@
     <input type="password" name = "password_confirmation" placeholder="Confirme a Senha">
     <input type="submit" value = "Enviar">
 </form>
+
+@foreach ($usuarios as $user)
+    <div>
+        {{ $user->name }}
+    </div>
+@endforeach

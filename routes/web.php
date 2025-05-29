@@ -1,15 +1,26 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AutenticaController;
 use App\Http\Controllers\CalculosController;
 use App\Http\Controllers\KeepController;
 use App\Http\Controllers\MusicaController;
-use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-   return view('welcome');
-   
+    return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 
 Route::prefix('/keep')->group(function (){
     Route::get('/', [KeepController::class,'index'])->name('keep');
@@ -24,5 +35,8 @@ Route::prefix('/keep')->group(function (){
 
 Route::get('/autenticar',[AutenticaController::class, 'index'])->name('autentica');
 Route::get('/autenticar/login',[AutenticaController::class, 'login'])->name('autentica.login');
+Route::get('/autenticar/logout',[AutenticaController::class, 'logout'])->name('autentica.logout');
 Route::post('/autenticar/login',[AutenticaController::class, 'login']);
 Route::post('/autenticar/gravar',[AutenticaController::class, 'gravar'])->name('autentica.gravar');
+
+require __DIR__.'/auth.php';
