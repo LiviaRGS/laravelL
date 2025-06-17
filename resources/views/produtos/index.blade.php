@@ -13,6 +13,17 @@
                     <x-link-button href="{{ route('produtos.create') }}">
                         + Produto
                      </x-link-button>
+                     @foreach ($produtos as $produto)
+                        <div style = "border:1px dashed red; padding:2px">
+                            {{ $produto->nome }}
+                            <br/>
+                            {{ $produto->preco }}
+                            <br/>
+                            {{ $produto->descricao }}
+                            <br/>
+                            <img src="{{ asset("storage/".$produto->imagem) }}" alt="Imagem"/>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
