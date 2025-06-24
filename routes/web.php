@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,9 @@ Route::post('/autenticar/login',[AutenticaController::class, 'login']);
 Route::post('/autenticar/gravar',[AutenticaController::class, 'gravar'])->name('autentica.gravar');
 
 Route::resource('produtos',ProdutosController::class);
+Route::get('carrinho',[CarrinhoController::class,'index'])->name('carrinho.index');
+Route::get('carrinho/adicionar/{produto}',[CarrinhoController::class,'adicionar'])->name('carrinho.adicionar');
+Route::get('carrinho/remover/{produto}',[CarrinhoController::class,'remover'])->name('carrinho.remover');
 
 require __DIR__.'/auth.php';
 

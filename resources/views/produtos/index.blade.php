@@ -22,6 +22,8 @@
                             {{ $produto->descricao }}
                             <br/>
                             <img src="{{ asset("storage/".$produto->imagem) }}" alt="Imagem"/>
+                            <br/>
+                            <a href = "{{ route('carrinho.adicionar',$produto->id) }}">Adicionar ao carrinho</a>
                         </div>
                     @endforeach
                 </div>

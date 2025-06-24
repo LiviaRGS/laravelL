@@ -28,4 +28,5 @@ class ProdutosController extends Controller
         
         return redirect()->route('produtos.index');
     }
+
 }
