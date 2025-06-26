@@ -11,13 +11,15 @@
                      @if(count($carrinho) > 0)
                         @foreach ($carrinho as $id => $produto)
                             <div style = "border:1px dashed red; padding:2px">
-                                {{ $produto->nome }}
+                                {{ $produto['nome'] }}
                                 <br/>
-                                {{ $produto->preco }}
+                                {{ $produto['preco'] }}
                                 <br/>
-                                {{ $produto->descricao }}
+                                {{ $produto['descricao'] }}
                                 <br/>
-                                <img src="{{ asset("storage/".$produto->imagem) }}" alt="Imagem"/>
+                                <img src="{{ asset("storage/".$produto['imagem']) }}" alt="Imagem"/>
+                                <br/>
+                                {{ $produto['quantidade'] }}
                                 <br/>
                                 <a href = "{{ route('carrinho.remover',$id) }}">Remover item</a>
                             </div>
