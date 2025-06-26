@@ -10,18 +10,25 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                      @if(count($carrinho) > 0)
                         @foreach ($carrinho as $id => $produto)
-                            <div style = "border:1px dashed red; padding:2px">
+                            <div style = "border:1px solid blue; padding:25px;border-radius: 10px; margin:10px; background-color: aliceblue;">
+                                <b>Nome: </b>
                                 {{ $produto['nome'] }}
                                 <br/>
+                                <b>Preço: </b>
                                 {{ $produto['preco'] }}
                                 <br/>
+                                <b>Descrição: </b>
                                 {{ $produto['descricao'] }}
                                 <br/>
-                                <img src="{{ asset("storage/".$produto['imagem']) }}" alt="Imagem"/>
+                                @if($produto['imagem'] != null)
+                                <img src="{{ asset("storage/".$produto['imagem']) }}" alt="Imagem" width = "250" style = "border-radius:10px;background-color:white;"/> 
+                                @endif
                                 <br/>
+                                <b>Quantidade: </b>
                                 {{ $produto['quantidade'] }}
                                 <br/>
-                                <a href = "{{ route('carrinho.remover',$id) }}">Remover item</a>
+                                <br/>
+                                <a href = "{{ route('carrinho.remover',$id) }}" style = "background-color:black;color:white;border-radius:10px;padding:10px;">Remover item</a>
                             </div>
                         @endforeach
                     @endif
