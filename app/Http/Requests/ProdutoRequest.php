@@ -27,6 +27,7 @@ class ProdutoRequest extends FormRequest
                 'preco' => 'required',
                 'descricao' => 'required',
                 'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'categoria_id' => 'required',
             ];
         }
         return [];

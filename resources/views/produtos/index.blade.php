@@ -13,6 +13,15 @@
                     <x-link-button href="{{ route('produtos.create') }}">
                         + Produto
                      </x-link-button>
+                     <form action="{{Route('produtos.index')}}" method = "get">
+                        <select name="filtrar">
+                                <option value="noone">Sem filtro</option>
+                                @foreach($categorias as $i=>$d)
+                                    <option value="{{ $i }}">{{ $d }}</option>
+                                @endforeach
+                        </select>
+                        <input type="submit" value = "Filtrar">
+                    </form>
                      @foreach ($produtos as $produto)
                         <div style = "border:1px solid blue; padding:25px;border-radius: 10px; margin:10px; background-color: aliceblue;">
                             <b>Nome: </b>
@@ -23,6 +32,9 @@
                             <br/>
                             <b>Descrição: </b>
                             {{ $produto->descricao }}
+                            <br/>
+                            <b>Categoria: </b>
+                            {{ $categorias[$produto->categoria_id] }}
                             <br/>
                             @if($produto->imagem != null)
                             <img src="{{ asset("storage/".$produto->imagem) }}" alt="Imagem" width = "250" style = "border-radius:10px;background-color:white;"/>

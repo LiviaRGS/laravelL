@@ -26,8 +26,17 @@
                             <x-input-label for="descricao" :value="__('Descricao')" />
                             <x-textarea id="descricao" class="block mt-1" type="number" name="descricao" required autofocus autocomplete="descricao">{{ old('descricao') }}</x-textarea>
                             <x-input-error :messages="$errors->get('descricao')" class="mt-2" />
+                            <br/>
                             <input type="file" name="imagem" id="imagem" accept="image/*">
-
+                            <br/>
+                            <br/>
+                            <select name="categoria_id">
+                                @foreach($categorias as $i)
+                                    <option value="{{ $i->id }}">{{ $i->nome }}</option>
+                                @endforeach
+                            </select>
+                            <br/>
+                            <br/>
                             <x-primary-button>
                                 Gravar produto
                             </x-primary-button>

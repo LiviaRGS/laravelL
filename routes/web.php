@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,10 @@ Route::resource('produtos',ProdutosController::class);
 Route::get('carrinho',[CarrinhoController::class,'index'])->name('carrinho.index');
 Route::get('carrinho/adicionar/{produto}',[CarrinhoController::class,'adicionar'])->name('carrinho.adicionar');
 Route::get('carrinho/remover/{produto}',[CarrinhoController::class,'remover'])->name('carrinho.remover');
+
+Route::get('categorias',[CategoriaController::class,'index'])->name('categoria.index');
+Route::get('categorias/criar',[CategoriaController::class,'create'])->name('categoria.create');
+Route::post('categorias/gravar',[CategoriaController::class,'store'])->name('categoria.store');
 
 require __DIR__.'/auth.php';
 
