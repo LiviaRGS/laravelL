@@ -14,13 +14,14 @@
                         + Produto
                      </x-link-button>
                      <form action="{{Route('produtos.index')}}" method = "get">
-                        <select name="filtrar">
+                     <br/>
+                        <select name="filtrar" style = "border-radius: 10px;">
                                 <option value="noone">Sem filtro</option>
                                 @foreach($categorias as $i=>$d)
                                     <option value="{{ $i }}">{{ $d }}</option>
                                 @endforeach
                         </select>
-                        <input type="submit" value = "Filtrar">
+                        <input type="submit" value = "Filtrar" style = "background-color:black;color:white;border-radius:10px;padding:10px;">
                     </form>
                      @foreach ($produtos as $produto)
                         <div style = "border:1px solid blue; padding:25px;border-radius: 10px; margin:10px; background-color: aliceblue;">
