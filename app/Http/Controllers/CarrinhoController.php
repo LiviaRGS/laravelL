@@ -38,7 +38,7 @@ class CarrinhoController extends Controller
             session()->put('carrinho', $atual);
         };
         
-        return redirect()->route('carrinho.index');
+        return redirect()->route('produtos.index');
     }
     public function remover($produto){
        
