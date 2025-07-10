@@ -16,5 +16,7 @@ class CategorySeeder extends Seeder
         Category::create(['name'=>'TBHK']);
         Category::create(['name'=>'Blush Blush']);
         Category::create(['name'=>'Date Everything']);
+        Category::create(['name'=>'KPDH']);
+        Category::create(['name'=>'PJSK']);
     }
 }
